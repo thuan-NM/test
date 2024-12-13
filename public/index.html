@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trung tâm Ngoại ngữ Fabulous Mekong - FME</title>
+  <link rel="stylesheet" href="css/typo/typo.css" />
+  <link rel="stylesheet" href="css/hc-canvas-luckwheel.css" />
+  <style>
+    .hc-luckywheel {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+  </style>
+</head>
+
+<body class="bg" style="  height: 100vh !important;
+  width: 100% !important;">
+  <div class="wheel-container">
+    <h2 class="wheel-title">Thử vận may</br>rinh ngay phần thưởng</h2>
+    <p class="wheel-title-main">CÙNG M.I.A</p>
+    <h2 class="wheel-title-subtitle">Nhấn để quay, nhận liền tay quà tặng hấp dẫn</h2>
+    <div class="typo" id="wrapper">
+      <div id="luckywheel" class="hc-luckywheel">
+        <div style="position: relative;">
+          <div class="hc-luckywheel-container">
+            <canvas class="hc-luckywheel-canvas" width="500px" height="500px">Vòng Xoay May Mắn</canvas>
+          </div>
+          <div style="position: relative; margin: 15px;">
+            <img src="../public/assests/wheel.png" alt="" style="position: absolute;" width="320px" height="320px"
+              class="wheel">
+          </div>
+        </div>
+        <div class="hc-luckywheel-pointer"></div>
+        <a class="hc-luckywheel-btn" href="javascript:;">
+          <p>
+            BẮT<br />ĐẦU<br />CHƠI
+          </p>
+        </a>
+        <h2 class="footer-title">NHANH TAY LẤY NGAY QUÀ TẶNG SỐ LƯỢNG CÓ HẠN CÙNG M.I.A</h2>
+      </div>
+
+    </div>
+  </div>
+
+  <audio allow="autoplay" loop src="./assests/nhacNen.mp3" id="wheel-background-music"></audio>
+  <audio src="./assests//nhacQuaySo.mp3" id="wheel-rotate-music"></audio>
+  </style>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hc-canvas-luckwheel@1.0.2/dist/hc-canvas-luckwheel.min.js"></script>
+  <script src="js/hc-canvas-luckwheel.js"></script>
+  <script>
+    var isPercentage = true;
+
+    const prizes = [
+      {
+        text: "Giảm 20% Dịch Vụ Peel",
+        number: 10,
+        percentpage: 0.1,
+        img: '../public/assests/gifts/Voucher giảm 20_ peel da.png'
+      },
+      {
+        text: "Túi Tote",
+        number: 10,
+        percentpage: 0.1,
+        img: '../public/assests/gifts/Túi Tote.png'
+      },
+      {
+        text: "Túi Sáp 100gram",
+        number: 10,
+        percentpage: 0.1,
+        img: '../public/assests/gifts/Túi sáp 100gr.png'
+      },
+      {
+        text: "Discount 50% Peel",
+        number: 10,
+        percentpage: 0.1,
+        img: '../public/assests/gifts/Voucher giảm 50_ peel.png'
+      },
+      {
+        text: "Free 100% Dịch Vụ Da",
+        number: 10,
+        percentpage: 0.05,
+        img: '../public/assests/gifts/Voucher free dịch vụ da.png'
+      },
+      {
+        text: "Triệt Trải Nghiệm 1K",
+        number: 10,
+        percentpage: 0.1,
+        img: '../public/assests/gifts/Triệt trải nghiệm 1K.png'
+      },
+      {
+        text: "Giảm 30% Cấy Trắng Enzyme 5D",
+        number: 10,
+        percentpage: 0.1,
+        img: '../public/assests/gifts/Voucher giảm 30_ cấy trắng 5D.png'
+      },
+      {
+        text: "Túi Tote",
+        number: 10,
+        percentpage: 0.1,
+        img: '../public/assests/gifts/Túi Tote.png'
+      },
+      {
+        text: "1 Buổi Wax Nách Free",
+        number: 10,
+        percentpage: 0.1,
+        img: '../public/assests/gifts/Voucher Wax nách free_1.png'
+      },
+      {
+        text: "Wax 9K",
+        number: 10,
+        percentpage: 0.05,
+        img: '../public/assests/gifts/Voucher wax nách 9K.png'
+      },
+      {
+        text: "Triệt Nách Nữ 499K Nam 899K",
+        number: 10,
+        percentpage: 0.05,
+        img: '../public/assests/gifts/Voucher Triệt 899_499.png'
+      },
+      {
+        text: "Giảm 30% Dịch Vụ Da",
+        number: 10,
+        percentpage: 0.05,
+        img: '../public/assests/gifts/Voucher giảm 30_ dịch vụ da.png'
+      },
+    ];
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      function () {
+        hcLuckywheel.init({
+          id: "luckywheel",
+          config: function (callback) {
+            callback && callback(prizes);
+          },
+          mode: "text",
+          getPrize: function (callback) {
+            var rand = randomIndex(prizes);
+            var chances = rand;
+            callback && callback([rand, chances]);
+          },
+          gotBack: function (data) {
+            confetti({
+              zIndex: 99999,
+              particleCount: 500,
+              startVelocity: 30,
+              spread: 360,
+            });
+            if (data == null) {
+              Swal.fire(
+                'Chương trình kết thúc',
+                'Đã hết phần thưởng',
+                'error'
+              )
+            } else if (data == 'Chúc bạn may mắn lần sau') {
+              Swal.fire(
+                'Bạn không trúng thưởng',
+                data,
+                'error'
+              )
+            } else {
+              Swal.fire(
+                'Đã trúng giải',
+                data,
+                'success'
+              )
+            }
+          }
+        });
+
+        // Optional: Automatically play background music on page load
+        // Swal.fire(
+        //   {
+        //     title: "Chào mừng </br> các Tân sinh viên </br> Trường Bách Khoa",
+        //     html: "Cùng tham gia vòng quay may mắn để nhận những phần quà giá trị từ FME nhé!",
+        //     confirmButtonText: 'Tham gia ngay'
+        //   }
+        // ).then(() => {
+        //   document.querySelector("#wheel-background-music").play()
+        // })
+      },
+      false
+    );
+
+    function randomIndex(prizes) {
+      console.log(prizes);
+      document.querySelector("#wheel-background-music").pause()
+      document.querySelector("#wheel-rotate-music").play()
+
+      // Check if all prizes are exhausted
+      var exhausted = prizes.every(prize => prize.number === 0);
+      if (exhausted) {
+        return null;
+      }
+
+      if (isPercentage) {
+        let rand = Math.random();
+        let cumulative = 0;
+        let prizeIndex = null;
+
+        for (let i = 0; i < prizes.length; i++) {
+          cumulative += prizes[i].percentpage;
+          if (rand < cumulative) {
+            prizeIndex = i;
+            break;
+          }
+        }
+
+        // If no prize is selected due to floating point precision, assign the last prize
+        if (prizeIndex === null) {
+          prizeIndex = prizes.length - 1;
+        }
+
+        // Check if the selected prize is still available
+        if (prizes[prizeIndex].number > 0) {
+          prizes[prizeIndex].number -= 1;
+          return prizeIndex;
+        } else {
+          // If the selected prize is exhausted, recursively try again
+          return randomIndex(prizes);
+        }
+      } else {
+        // Random selection without percentage
+        var availablePrizes = prizes.filter(prize => prize.number > 0);
+        if (availablePrizes.length === 0) {
+          return null;
+        }
+        var rand = Math.floor(Math.random() * availablePrizes.length);
+        var selectedPrize = availablePrizes[rand];
+        var prizeIndex = prizes.indexOf(selectedPrize);
+        prizes[prizeIndex].number -= 1;
+        return prizeIndex;
+      }
+    }
+  </script>
+
+</body>
+
+</html>
