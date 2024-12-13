@@ -203,6 +203,7 @@ body {
   .hc-luckywheel-item img {
     position: absolute;
     width: 25px;
+    height: 45px;
   }
 
   .hc-luckywheel-btn {
@@ -348,9 +349,12 @@ body {
 }
 
 .footer-title {
-  position: absolute;
-  bottom: -150px;
-  left: 50%;
+  position: relative;
+  bottom: -450px;
+  width: 95%;
+  margin: auto;
+  left: 0;
+  text-align: center;
   font-family: "Footer", sans-serif;
   font-size: 13px;
   font-weight: 600;
