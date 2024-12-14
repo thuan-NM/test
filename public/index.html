@@ -92,60 +92,7 @@
         percentpage: 0.1,
         img: './assests/gifts/Túi sáp 100gr.png'
       },
-      {
-        text: "Discount 50% Peel",
-        number: 10,
-        percentpage: 0.1,
-        img: './assests/gifts/Voucher giảm 50_ peel.png'
-      },
-      {
-        text: "Free 100% Dịch Vụ Da",
-        number: 10,
-        percentpage: 0.05,
-        img: './assests/gifts/Voucher free dịch vụ da.png'
-      },
-      {
-        text: "Triệt Trải Nghiệm 1K",
-        number: 10,
-        percentpage: 0.1,
-        img: './assests/gifts/Triệt trải nghiệm 1K.png'
-      },
-      {
-        text: "Giảm 30% Cấy Trắng Enzyme 5D",
-        number: 10,
-        percentpage: 0.1,
-        img: './assests/gifts/Voucher giảm 30_ cấy trắng 5D.png'
-      },
-      {
-        text: "Túi Tote",
-        number: 10,
-        percentpage: 0.1,
-        img: './assests/gifts/Túi Tote.png'
-      },
-      {
-        text: "1 Buổi Wax Nách Free",
-        number: 10,
-        percentpage: 0.1,
-        img: './assests/gifts/Voucher Wax nách free_1.png'
-      },
-      {
-        text: "Wax 9K",
-        number: 10,
-        percentpage: 0.05,
-        img: './assests/gifts/Voucher wax nách 9K.png'
-      },
-      {
-        text: "Triệt Nách Nữ 499K Nam 899K",
-        number: 10,
-        percentpage: 0.05,
-        img: './assests/gifts/Máy triệt lông.png'
-      },
-      {
-        text: "Giảm 30% Dịch Vụ Da",
-        number: 10,
-        percentpage: 0.05,
-        img: './assests/gifts/Voucher giảm 30_ dịch vụ da.png'
-      },
+      
     ];
 
     function openModal(data) {
@@ -159,7 +106,13 @@
       } else {
         // Nếu trúng thưởng, cập nhật phần thưởng
         document.getElementById("prizeText").textContent = data.text;
-        document.getElementById("prizeImage").src = data.img;
+        if (data.text == "Túi Tote" || data.text == "Túi Sáp 100gram" || data.text == "Triệt Nách Nữ 499K Nam 899K") {
+          document.getElementById("prizeImage").src = data.img;
+        }
+        else{
+          document.getElementById("prizeImage").classList.add("rotate");
+          document.getElementById("prizeImage").src = data.img;
+        }
       }
 
       document.getElementById("popupOverlay").style.display = "flex";

@@ -178,35 +178,11 @@
   }
 
   function eGot() {
-
     if (optsPrize.chances == null) {
       return fnGotBack(null);
     } else {
-      // Giả sử optsPrize là đối tượng chứa prizeId
-      var prize = prizes[optsPrize.prizeId];
-      var imgPath = prize.img;  // Đường dẫn đến hình ảnh
-
-      // Tạo phần tử <img> từ đường dẫn img
-      var imgElement = document.createElement('img');
-      imgElement.src = imgPath;  // Gán nguồn hình ảnh cho phần tử img
-
-      // Debug: In ra phần tử img
-      console.log(imgElement);
-
-      // Kiểm tra nếu phần tử imgElement hợp lệ
-      if (imgElement) {
-        if (prize.text == "Túi Tote" || prize.text == "Túi Sáp 100gram" || prize.text == "Triệt Nách Nữ 499K Nam 899K") {
-          // Nếu là một trong ba giải thưởng này, không quay hình ảnh
-          imgElement.style.transform = "rotate(0deg)";
-        } else {
-          // Nếu không phải, quay hình ảnh 90 độ
-          imgElement.style.transform = "rotate(270deg)";
-        }
-      }
-
-      // Thêm phần tử img vào DOM nếu cần
-      document.body.appendChild(imgElement);  // Hoặc thêm vào phần tử container của bạn
-
+      removeClass(btn, "disabled");
+      return fnGotBack(prizes[optsPrize.prizeId]);
     }
   }
 

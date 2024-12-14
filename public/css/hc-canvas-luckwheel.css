@@ -513,3 +513,6 @@ body {
   margin-top: 3px;
   align-items: center;
 }
+.rotate{
+  transform: rotate(270deg);
+}
