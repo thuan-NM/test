@@ -272,7 +272,7 @@ body {
 }
 .popup .subtitle {
   position: relative;
-  bottom: -10%;
+  bottom: 0%;
   font-size: 11px;
   margin: auto !important;
   width: fit-content;
@@ -282,7 +282,7 @@ body {
   font-weight: lighter;
 
 }
-@media only screen and (min-width: 410px) and (min-height: 710px) {
+@media only screen and (min-width: 410px) and (min-height: 750px) {
   .footer-title {
     position: absolute;
     bottom: 10%;
