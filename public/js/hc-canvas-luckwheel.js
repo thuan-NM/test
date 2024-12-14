@@ -182,7 +182,7 @@
       return fnGotBack(null);
     } else {
       removeClass(btn, "disabled");
-      return fnGotBack(prizes[optsPrize.prizeId].text);
+      return fnGotBack(prizes[optsPrize.prizeId]);
     }
   }
 
@@ -257,6 +257,6 @@
 function rotateWheel() {
   var spins = Math.floor(Math.random() * 5000 + 2000); // Random số lần quay
   var rotation = spins + 'deg'; // Tính toán góc quay
-  canvas.style.transition = 'transform 5s ease-out';
+  canvas.style.transition = 'transform 6s ease-out';
   canvas.style.transform = 'rotate(' + rotation + ')';
 }
