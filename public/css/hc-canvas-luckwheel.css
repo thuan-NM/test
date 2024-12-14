@@ -517,7 +517,7 @@ body {
 }
 
 .popup img {
-  width: 120px;
+  max-width: 190px;
   margin: 18px auto;
   display: block;
 }
