@@ -136,7 +136,6 @@
   text-align: center;
   font-size: 18px;
   text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.6);
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
   text-decoration: none;
 }
 
@@ -153,12 +152,12 @@ body {
 }
 
 .bg {
-  margin-top: 20px;
   background-image: url("../assests/background.png");
-  object-fit: scale-down;
+  object-fit: contain;
+  object-position: center !important;
   background-color: #F4F4F4;
   background-repeat: no-repeat;
-  height: fit-content;
+  height: 100%;
 }
 
 .wheel-container {
@@ -205,7 +204,7 @@ body {
 @media only screen and (min-width: 310px) {
   .hc-luckywheel {
     width: 350px;
-    height: 350px;
+    height: 500px;
   }
 
   .hc-luckywheel-item span {
@@ -228,19 +227,20 @@ body {
 
   .hc-luckywheel-btn {
     position: absolute;
-    left: 130px;
-    top: 130px;
-    width: 90px;
-    height: 90px;
+    left: 137px;
+    top: 124px;
+    width: 78px;
+    height: 78px;
     line-height: 25px;
     z-index: 50;
   }
 
   .hc-luckywheel-btn p {
     font-family: "Title", sans-serif;
+    line-height: 22px;
     -webkit-text-stroke: 1px #825B3D;
     text-shadow: 0px 4px 2px #997354;
-    margin-top: 8px;
+    margin-top: 4px;
   }
 
   .wheel-title {
@@ -253,7 +253,55 @@ body {
     visibility: hidden;
   }
 }
+.footer-title {
+  position: absolute;
+  bottom: -10%;
+  width: 90%;
+  margin: auto;
 
+  left:5%;
+  border-radius: 4px;
+  text-align: center;
+  font-family: "Footer", sans-serif;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #FAC944;
+}
+@media only screen and (min-width: 410px) and (min-height: 750px) {
+  .footer-title {
+    position: absolute;
+    bottom: 10%;
+    width: fit-content;
+    margin: auto;
+    padding: 4px;
+    left:11%;
+    border-radius: 4px;
+    text-align: center;
+    font-family: "Footer", sans-serif;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #FAC944;
+  }
+}
+@media only screen and (min-width: 310px) and (min-height: 915px) {
+  .footer-title {
+    position: absolute;
+    bottom: 10%;
+    width: fit-content;
+    margin: auto;
+    padding: 4px;
+    left:12%;
+    border-radius: 4px;
+    text-align: center;
+    font-family: "Footer", sans-serif;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #FAC944;
+  }
+}
 @media only screen and (min-width: 480px) {
   .hc-luckywheel {
     width: 450px;
@@ -339,7 +387,7 @@ body {
 /* Thêm con trỏ (pointer) ở phía trên vòng quay */
 .hc-luckywheel-pointer {
   position: absolute;
-  top: -25px;
+  top: -30px;
   left: 50%;
   width: 75px;
   height: 75px;
@@ -369,22 +417,6 @@ body {
   margin-top: 3px;
 }
 
-.footer-title {
-  position: absolute;
-  bottom: 0%;
-  width: 88%;
-  margin: auto;
-  padding: 2px;
-  left:6%;
-  border-radius: 4px;
-  text-align: center;
-  font-family: "Footer", sans-serif;
-  border: none;
-  font-size: 14px;
-  font-weight: 500;
-  background-color: #FAC944;
-}
-
 /* Nội dung chính */
 .wheel-container {
   transition: filter 0.3s ease;
@@ -396,7 +428,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  filter: blur(5px);
+  filter: blur(3px);
   overflow: hidden !important;
 }
 
@@ -407,7 +439,7 @@ body {
   left: 0px;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(120, 103, 41, 0.6);
   display: none;
   align-items: center;
   justify-content: center;
@@ -424,6 +456,7 @@ body {
 }
 
 .popup .win-icon {
+  margin-top: 50px;
   width: 70px;
   height: 70px;
 }
@@ -444,7 +477,7 @@ body {
 
 .popup img {
   width: 150px;
-  margin: 10px auto;
+  margin: 18px auto;
   display: block;
 }
 
@@ -456,10 +489,10 @@ body {
 
 .popup .btn {
   display: inline-block;
-  padding: 10px 20px;
-  background: #ffcc00;
+  background: #F5CB41;
+  font-family: "Footer", sans-serif;
   color: #333;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   border-radius: 10px;
   text-decoration: none;
