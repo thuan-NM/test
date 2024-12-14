@@ -173,12 +173,11 @@
         // Nếu trúng thưởng, cập nhật phần thưởng
         //document.getElementById("prizeText").textContent = data.text;
         document.getElementById("title").innerHTML = `Bạn đã nhận được\n<p style="margin:0px;color: #fff;
-        font-weight: 900 !important;  font-size: 20px !important;
-        ">${data.text}</p>\n<p style="margin:0px";>từ M.I.A rồi, hãy điền thông tin</p><p style="margin:0px";>để nhận quà ngay nhé!</p>`;
-        if (data.text == "Túi Tote" || data.text == "Túi Sáp 100gram" || data.text == "Triệt Nách Nữ 499K Nam 899K") {
+        font-weight: 900 !important;  font-size: 20px !important;">${data.text}</p>\n<p style="margin:0px";>từ M.I.A rồi, hãy điền thông tin</p><p style="margin:0px";>để nhận quà ngay nhé!</p>`;
+
+        if (data.text == 'Túi Tote' || data.text == 'Túi Sáp 100gram' || data.text == 'Triệt Nách Nữ 499K Nam 899K') {
           document.getElementById("prizeImage").src = data.img;
-        }
-        else {
+        } else {
           document.getElementById("prizeImage").classList.add("rotate");
           document.getElementById("prizeImage").src = data.img;
         }
@@ -192,6 +191,7 @@
 
     function closeModal() {
       // Ẩn modal và xóa lớp làm mờ
+      document.getElementById("prizeImage").classList.remove("rotate");
       document.getElementById("popupOverlay").style.display = "none";
       document.getElementById("content").classList.remove("blur");
       document.getElementById("footer").classList.remove("blur");
