@@ -9,21 +9,23 @@
   <link rel="stylesheet" href="css/hc-canvas-luckwheel.css" />
   <style>
     .hc-luckywheel {
-      position: fixed;
+      position: relative;
       top: 50%;
       left: 50%;
-      transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(35%);
     }
   </style>
 </head>
 
 <body class="bg" style="  height: 100vh !important;
     width: 100% !important;">
-  <div style="width: 100%;">
+  <div style="width: 100%; height:100%; border: none;">
     <div class="wheel-container" id="content">
-      <h2 class="wheel-title">Thử vận may</br>rinh ngay phần thưởng</h2>
-      <p class="wheel-title-main">CÙNG M.I.A</p>
-      <h2 class="wheel-title-subtitle">Nhấn để quay, nhận liền tay quà tặng hấp dẫn</h2>
+      <div style="position: relative;">
+        <h2 class="wheel-title">Thử vận may</br>rinh ngay phần thưởng</h2>
+        <p class="wheel-title-main">CÙNG M.I.A</p>
+        <h2 class="wheel-title-subtitle">Nhấn để quay, nhận liền tay quà tặng hấp dẫn</h2>
+      </div>
       <div class="typo" id="wrapper">
         <div id="luckywheel" class="hc-luckywheel">
           <div style="position: relative;">
@@ -41,11 +43,13 @@
               BẮT<br />ĐẦU<br />CHƠI
             </p>
           </a>
-          <h2 class="footer-title">NHANH TAY LẤY NGAY QUÀ TẶNG SỐ LƯỢNG CÓ HẠN CÙNG M.I.A</h2>
+
         </div>
       </div>
     </div>
-
+    <h2 class="footer-title">
+      NHANH TAY LẤY NGAY QUÀ TẶNG SỐ LƯỢNG CÓ HẠN CÙNG M.I.A
+    </h2>
     <div class="overlay" id="popupOverlay">
       <div class="popup">
         <img src="../public/assests//Icon Trúng thưởng.png" alt="🎉" class="win-icon">

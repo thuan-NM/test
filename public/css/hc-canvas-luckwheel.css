@@ -15,7 +15,7 @@
 @font-face {
   font-family: 'Footer';
   /* Tên font bạn muốn sử dụng */
-  src: url('../fonts/footer_B.TTF') format('truetype');
+  src: url('../fonts/footer_R.TTF') format('truetype');
   /* Đường dẫn đến file font */
 }
 
@@ -31,6 +31,10 @@
   /* Tên font bạn muốn sử dụng */
   src: url('../fonts/main-font-medi.otf') format('truetype');
   /* Đường dẫn đến file font */
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .hc-luckywheel ul,
@@ -55,11 +59,15 @@
 }
 
 .hc-luckywheel-container {
+  will-change: transform; /* Giúp trình duyệt biết trước để tối ưu hóa rendering */
   position: absolute;
   left: 10%;
   top: 20px;
   z-index: 40;
   width: 280px;
+  /* Kích thước cố định cho chiều rộng */
+  height: 280px;
+  /* Kích thước cố định cho chiều cao */
   height: inherit;
   border-radius: inherit;
   background-clip: padding-box;
@@ -145,10 +153,12 @@ body {
 }
 
 .bg {
+  margin-top: 20px;
   background-image: url("../assests/background.png");
   object-fit: scale-down;
   background-color: #F4F4F4;
   background-repeat: no-repeat;
+  height: fit-content;
 }
 
 .wheel-container {
@@ -178,7 +188,7 @@ body {
   margin-bottom: 0px;
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 310px) {
   .hc-luckywheel {
     visibility: hidden;
   }
@@ -192,7 +202,7 @@ body {
   }
 }
 
-@media only screen and (min-width: 320px) {
+@media only screen and (min-width: 310px) {
   .hc-luckywheel {
     width: 350px;
     height: 350px;
@@ -345,6 +355,7 @@ body {
   font-optical-sizing: auto;
   font-style: normal;
   font-weight: 800;
+  text-align: center;
   margin-top: 4px;
 }
 
@@ -359,15 +370,18 @@ body {
 }
 
 .footer-title {
-  position: relative;
-  bottom: -450px;
-  width: 95%;
+  position: absolute;
+  bottom: 0%;
+  width: 88%;
   margin: auto;
-  left: 0;
+  padding: 2px;
+  left:6%;
+  border-radius: 4px;
   text-align: center;
   font-family: "Footer", sans-serif;
-  font-size: 13px;
-  font-weight: 600;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
   background-color: #FAC944;
 }
 
@@ -378,8 +392,12 @@ body {
 
 /* Làm mờ nội dung khi modal hiển thị */
 .wheel-container.blur {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   filter: blur(5px);
-  width: 100% !important;
+  overflow: hidden !important;
 }
 
 /* Modal Overlay */
@@ -405,7 +423,7 @@ body {
   position: relative;
 }
 
-.popup .win-icon{
+.popup .win-icon {
   width: 70px;
   height: 70px;
 }
@@ -450,4 +468,15 @@ body {
 
 .popup .btn:hover {
   background: #f5b700;
+}
+
+.wheel-title-subtitle {
+  font-family: "Subtitle", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 0px;
+  font-style: normal;
+  margin-top: 3px;
+  align-items: center;
 }
