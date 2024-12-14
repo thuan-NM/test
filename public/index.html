@@ -47,17 +47,30 @@
         </div>
       </div>
     </div>
-    <h2 class="footer-title">
+    <h2 class="footer-title" id="footer">
       NHANH TAY LẤY NGAY QUÀ TẶNG SỐ LƯỢNG CÓ HẠN CÙNG M.I.A
     </h2>
-    <div class="overlay" id="popupOverlay">
+    <!--Giao diện nhận phần thưởng rồi -->
+    <!-- <div class="overlay" id="popupOverlay">
       <div class="popup">
         <img src="../public/assests//Icon Trúng thưởng.png" alt="🎉" class="win-icon">
-        <div class="title">🎉 Chúc mừng bạn nhận được</div>
-        <div class="prize" id="prizeText">Triệt Nách<br>Nữ 499K / Nam 899K</div>
+        <div class="title">Chúc mừng bạn nhận được</div>
+        <div class="prize" id="prizeText"></div>
         <img id="prizeImage" src="" alt="MIA Device">
-        <div class="info">Điền thông tin để nhận quà</div>
         <a href="#" class="btn" onclick="closeModal()">Điền thông tin để nhận quà</a>
+        <div class="subtitle">Trường hợp xuất hiện 2 giải thưởng cùng mã (code) hoặc<br />mã không hợp lệ, giải thưởng
+          sẽ được xem là không hợp lệ.</div>
+      </div>
+    </div> -->
+    <!--Giao diện đã có quà rồi -->
+    <div class="overlay" id="popupOverlay">
+      <div class="popup">
+        <img src="../public/assests//Icon hết lượt quay.png" alt="🎉" class="win-icon">
+        <div class="title" id="title"></div>
+        <img id="prizeImage" src="" alt="MIA Device">
+        <a href="#" class="btn" onclick="closeModal()">Điền thông tin để nhận quà</a>
+        <div class="subtitle">Trường hợp xuất hiện 2 giải thưởng cùng mã (code) hoặc<br />mã không hợp lệ, giải thưởng
+          sẽ được xem là không hợp lệ.</div>
       </div>
     </div>
   </div>
@@ -92,7 +105,60 @@
         percentpage: 0.1,
         img: './assests/gifts/Túi sáp 100gr.png'
       },
-      
+      {
+        text: "Discount 50% Peel",
+        number: 10,
+        percentpage: 0.1,
+        img: './assests/gifts/Voucher giảm 50_ peel.png'
+      },
+      {
+        text: "Free 100% Dịch Vụ Da",
+        number: 10,
+        percentpage: 0.05,
+        img: './assests/gifts/Voucher free dịch vụ da.png'
+      },
+      {
+        text: "Triệt Trải Nghiệm 1K",
+        number: 10,
+        percentpage: 0.1,
+        img: './assests/gifts/Triệt trải nghiệm 1K.png'
+      },
+      {
+        text: "Giảm 30% Cấy Trắng Enzyme 5D",
+        number: 10,
+        percentpage: 0.1,
+        img: './assests/gifts/Voucher giảm 30_ cấy trắng 5D.png'
+      },
+      {
+        text: "Túi Tote",
+        number: 10,
+        percentpage: 0.1,
+        img: './assests/gifts/Túi Tote.png'
+      },
+      {
+        text: "1 Buổi Wax Nách Free",
+        number: 10,
+        percentpage: 0.1,
+        img: './assests/gifts/Voucher Wax nách free_1.png'
+      },
+      {
+        text: "Wax 9K",
+        number: 10,
+        percentpage: 0.05,
+        img: './assests/gifts/Voucher wax nách 9K.png'
+      },
+      {
+        text: "Triệt Nách Nữ 499K Nam 899K",
+        number: 10,
+        percentpage: 0.05,
+        img: './assests/gifts/Máy triệt lông.png'
+      },
+      {
+        text: "Giảm 30% Dịch Vụ Da",
+        number: 10,
+        percentpage: 0.05,
+        img: './assests/gifts/Voucher giảm 30_ dịch vụ da.png'
+      },
     ];
 
     function openModal(data) {
@@ -105,24 +171,31 @@
         document.getElementById("prizeImage").src = "../public/assests/sorry.png"; // Hình ảnh không trúng
       } else {
         // Nếu trúng thưởng, cập nhật phần thưởng
-        document.getElementById("prizeText").textContent = data.text;
+        //document.getElementById("prizeText").textContent = data.text;
+        document.getElementById("title").innerHTML = `Bạn đã nhận được\n<p style="margin:0px;color: #fff;
+        font-weight: 900 !important;  font-size: 20px !important;
+        ">${data.text}</p>\n<p style="margin:0px";>từ M.I.A rồi, hãy điền thông tin</p><p style="margin:0px";>để nhận quà ngay nhé!</p>`;
         if (data.text == "Túi Tote" || data.text == "Túi Sáp 100gram" || data.text == "Triệt Nách Nữ 499K Nam 899K") {
           document.getElementById("prizeImage").src = data.img;
         }
-        else{
+        else {
           document.getElementById("prizeImage").classList.add("rotate");
           document.getElementById("prizeImage").src = data.img;
         }
+
       }
 
       document.getElementById("popupOverlay").style.display = "flex";
       document.getElementById("content").classList.add("blur");
+      document.getElementById("footer").classList.add("blur");
     }
 
     function closeModal() {
       // Ẩn modal và xóa lớp làm mờ
       document.getElementById("popupOverlay").style.display = "none";
       document.getElementById("content").classList.remove("blur");
+      document.getElementById("footer").classList.remove("blur");
+
     }
 
     document.addEventListener(

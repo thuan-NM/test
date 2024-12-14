@@ -29,7 +29,7 @@
 @font-face {
   font-family: 'Main Font';
   /* Tên font bạn muốn sử dụng */
-  src: url('../fonts/main-font-medi.otf') format('truetype');
+  src: url('../fonts/main-font.otf') format('truetype');
   /* Đường dẫn đến file font */
 }
 
@@ -59,7 +59,8 @@
 }
 
 .hc-luckywheel-container {
-  will-change: transform; /* Giúp trình duyệt biết trước để tối ưu hóa rendering */
+  will-change: transform;
+  /* Giúp trình duyệt biết trước để tối ưu hóa rendering */
   position: absolute;
   left: 10%;
   top: 20px;
@@ -71,7 +72,7 @@
   height: inherit;
   border-radius: inherit;
   background-clip: padding-box;
-  transition: transform 6s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: transform 1s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .hc-luckywheel-container .wheel {
@@ -227,8 +228,8 @@ body {
 
   .hc-luckywheel-btn {
     position: absolute;
-    left: 137px;
-    top: 124px;
+    left: 136px;
+    top: 122px;
     width: 78px;
     height: 78px;
     line-height: 25px;
@@ -253,13 +254,14 @@ body {
     visibility: hidden;
   }
 }
+
 .footer-title {
   position: absolute;
   bottom: -10%;
   width: 90%;
   margin: auto;
 
-  left:5%;
+  left: 5%;
   border-radius: 4px;
   text-align: center;
   font-family: "Footer", sans-serif;
@@ -268,6 +270,18 @@ body {
   font-weight: 500;
   background-color: #FAC944;
 }
+.popup .subtitle {
+  position: relative;
+  bottom: -10%;
+  font-size: 11px;
+  margin: auto !important;
+  width: fit-content;
+  text-align: justify;
+  font-family: "Main Font", sans-serif;
+  color: #fff;
+  font-weight: lighter;
+
+}
 @media only screen and (min-width: 410px) and (min-height: 750px) {
   .footer-title {
     position: absolute;
@@ -275,7 +289,7 @@ body {
     width: fit-content;
     margin: auto;
     padding: 4px;
-    left:11%;
+    left: 11%;
     border-radius: 4px;
     text-align: center;
     font-family: "Footer", sans-serif;
@@ -284,7 +298,20 @@ body {
     font-weight: 500;
     background-color: #FAC944;
   }
+  .popup .subtitle {
+    position: relative;
+    bottom: -30%;
+    font-size: 11px;
+    margin: auto !important;
+    width: fit-content;
+    text-align: justify;
+    font-family: "Main Font", sans-serif;
+    color: #fff;
+    font-weight: lighter;
+  
+  }
 }
+
 @media only screen and (min-width: 310px) and (min-height: 915px) {
   .footer-title {
     position: absolute;
@@ -292,7 +319,7 @@ body {
     width: fit-content;
     margin: auto;
     padding: 4px;
-    left:12%;
+    left: 12%;
     border-radius: 4px;
     text-align: center;
     font-family: "Footer", sans-serif;
@@ -302,6 +329,7 @@ body {
     background-color: #FAC944;
   }
 }
+
 @media only screen and (min-width: 480px) {
   .hc-luckywheel {
     width: 450px;
@@ -432,6 +460,14 @@ body {
   overflow: hidden !important;
 }
 
+.footer-title {
+  transition: filter 0.3s ease;
+}
+
+.footer-title.blur {
+  filter: blur(3px);
+}
+
 /* Modal Overlay */
 .overlay {
   position: fixed;
@@ -439,7 +475,7 @@ body {
   left: 0px;
   width: 100%;
   height: 100%;
-  background: rgba(120, 103, 41, 0.6);
+  background: rgba(120, 103, 41, 0.5);
   display: none;
   align-items: center;
   justify-content: center;
@@ -462,21 +498,26 @@ body {
 }
 
 .popup .title {
-  font-size: 20px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 10px;
+  font-size: 18px;
+  font-family: "Main Font", sans-serif;
+  color: #fff;
+  font-weight: lighter;
+  margin-bottom: 8px;
+}
+.popup .title br {
+ font-size: 1px;
 }
 
 .popup .prize {
-  font-size: 18px;
-  font-weight: bold;
-  color: #ff4500;
+  font-size: 28px;
+  font-family: "Main Font", sans-serif;
+  color: #fff;
+  font-weight: 700;
   margin-bottom: 20px;
 }
 
 .popup img {
-  width: 150px;
+  width: 120px;
   margin: 18px auto;
   display: block;
 }
@@ -489,6 +530,7 @@ body {
 
 .popup .btn {
   display: inline-block;
+  margin-top: 10px;
   background: #F5CB41;
   font-family: "Footer", sans-serif;
   color: #333;
@@ -496,6 +538,7 @@ body {
   font-weight: bold;
   border-radius: 10px;
   text-decoration: none;
+  padding: 4px 10px;
   cursor: pointer;
 }
 
@@ -513,6 +556,7 @@ body {
   margin-top: 3px;
   align-items: center;
 }
-.rotate{
+
+.rotate {
   transform: rotate(270deg);
 }
