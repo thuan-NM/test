@@ -223,6 +223,7 @@ body {
     object-position: center !important;
     background-color: #F4F4F4;
     background-repeat: no-repeat;
+    background-size: contain;
     height: 100%;
   }
 
@@ -404,19 +405,9 @@ body {
   }
 
   .wheel-title {
-    margin-top: 70px;
     padding: 0 8px;
     font-size: 38px !important;
   }
-
-  .wheel-title-main{
-    font-size: 30px;
-  }
-
-  .wheel-title-subtitle{
-    font-size: 32px !important;
-  }
-
   .bg {
     background-image: url("../assests/background_tablet.png");
     object-fit: contain;

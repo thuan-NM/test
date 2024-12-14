@@ -67,7 +67,7 @@
         <img src="./assests/Icon hết lượt quay.png" alt="🎉" class="win-icon">
         <div class="title" id="title"></div>
         <img id="prizeImage" src="" alt="MIA Device">
-        <a href="#" class="btn" onclick="closeModal()">Điền thông tin để nhận quà</a>
+        <button class="btn" onclick="closeModal()">Điền thông tin để nhận quà</button>
         <div class="subtitle">Trường hợp xuất hiện 2 giải thưởng cùng mã (code) hoặc<br />mã không hợp lệ, giải thưởng
           sẽ được xem là không hợp lệ.</div>
       </div>
@@ -171,8 +171,7 @@
       } else {
         // Nếu trúng thưởng, cập nhật phần thưởng
         //document.getElementById("prizeText").textContent = data.text;
-        document.getElementById("title").innerHTML = `Bạn đã nhận được\n<p style="margin:0px;color: #fff;
-        font-weight: 900 !important;  font-size: 20px !important;">${data.text}</p>\n<p style="margin:0px";>từ M.I.A rồi, hãy điền thông tin</p><p style="margin:0px";>để nhận quà ngay nhé!</p>`;
+        document.getElementById("title").innerHTML = `Bạn đã nhận được\n<p class="product-name">${data.text}</p>\n<p style="margin:0px";>từ M.I.A rồi, hãy điền thông tin</p><p style="margin:0px";>để nhận quà ngay nhé!</p>`;
 
         if (data.text == 'Túi Tote' || data.text == 'Túi Sáp 100gram' || data.text == 'Triệt Nách Nữ 499K Nam 899K') {
           document.getElementById("prizeImage").src = data.img;
